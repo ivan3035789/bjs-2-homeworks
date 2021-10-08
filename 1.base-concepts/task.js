@@ -37,8 +37,8 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
 	} else {
 		let loanBody = totalCost - initialPayment;						  
   	let numberOfMonths = date.getMonth() - today.getMonth() + (12 * (date.getFullYear() - today.getFullYear())); 
-  	let monthlyPayment = loanBody * (interestRate  + interestRate  / ( Math.pow(1 + interestRate, numberOfMonths ) -1 )) ;			
+  	let monthlyPayment = loanBody * (interestRate  + interestRate  / ( Math.pow(1 + interestRate, numberOfMonths ) -1 ));			
   	let totalAmount = (monthlyPayment * numberOfMonths).toFixed(2);
- 	return totalAmount;
+ 	return +totalAmount;
  	}	
 }
