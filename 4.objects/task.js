@@ -1,14 +1,3 @@
-// function Student(name, gender, age) {
- 
-
-// }
-
-// Student.prototype.setSubject = function (subjectName) {
-
-// }
-
-// ваш код для остальных методов
-
 function Student(name, gender, age) {
 	this.name = name;
   this.gender = gender;
@@ -45,8 +34,8 @@ let sum = 0;
   return sum / this.marks.length;
 }
 
-Student.prototype.exclude = function (subjectName) {
+Student.prototype.exclude = function (reason) {
 	delete this.subject;
   delete this.marks;
-  this.excluded = subjectName;
+  this.excluded = reason;
 }
