@@ -11,7 +11,7 @@ class AlarmClock {
             return console.error('Данный Id уже существует');
         }
 
-        this.alarmCollection.push({id: idTimer, time: time, callback: callback})
+        this.alarmCollection.push( {id: idTimer, time: time, callback: callback} )
     }
 
     removeClock(idTimer) {
@@ -45,7 +45,7 @@ class AlarmClock {
         if (savedThis.getCurrentFormattedTime() === item.time) {item.callback()}
         }
         function bruteForceAlarm() {
-            savedThis.alarmCollection.forEach((item, idx) => {checkClock(item)})
+            savedThis.alarmCollection.forEach((item, idx) => {checkClock(item)} )
         }
         if (this.timerId === null) {
             this.timerId = setInterval(() => bruteForceAlarm(), 10000);
@@ -77,30 +77,39 @@ function testCase(alertName) {
     phoneAlarm.addClock(phoneAlarm.getCurrentFormattedTime(1), () => console.log('УЖЕ ВТОРОЙ БУДИЛЬНИК'), 2)
     phoneAlarm.addClock(phoneAlarm.getCurrentFormattedTime(2), () => console.log('ТЫ ОСТАЛСЯ БЕЗ ЗАВТРАКА'), 3)
 
+
     //печать будильников
     phoneAlarm.printAlarms();
+
 
     //добавить будильник без id
     phoneAlarm.addClock(phoneAlarm.getCurrentFormattedTime(), () => console.log('ПОДЪЕМ'));
 
+
     //добавить будильник в существующий id
     phoneAlarm.addClock(phoneAlarm.getCurrentFormattedTime(), () => console.log('ПОДЪЕМ'), 1);
+
 
     //удалить будильник 
     phoneAlarm.removeClock(3);
 
+
     //после удаления еще раз печатаем будильники 
     phoneAlarm.printAlarms();
+
 
     //удалить будильник которого не существует
     phoneAlarm.removeClock(666);
 
+
     //запускаем будильники и курим (интервал setTimeout каждые 10 секунд, чтоыб Вам долго не ждать)
     phoneAlarm.start()
+
 
     //тормозим всё, чтобы не звенело
     phoneAlarm.stop()
 
+
     //еще раз смотрим будильники
     phoneAlarm.printAlarms();
-};
+}
